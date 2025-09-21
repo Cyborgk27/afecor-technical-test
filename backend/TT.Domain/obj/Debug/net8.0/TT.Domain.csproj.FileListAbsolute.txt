@@ -1,0 +1,16 @@
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Domain\obj\Debug\net8.0\TT.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Domain\obj\Debug\net8.0\TT.Domain.AssemblyInfoInputs.cache
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Domain\obj\Debug\net8.0\TT.Domain.AssemblyInfo.cs
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Domain\obj\Debug\net8.0\TT.Domain.csproj.CoreCompileInputs.cache
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Domain\obj\Debug\net8.0\TT.Domain.sourcelink.json
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Domain\bin\Debug\net8.0\TT.Domain.deps.json
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Domain\bin\Debug\net8.0\TT.Domain.dll
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Domain\bin\Debug\net8.0\TT.Domain.pdb
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Domain\bin\Debug\net8.0\TT.Utilities.dll
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Domain\bin\Debug\net8.0\TT.Utilities.pdb
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Domain\obj\Debug\net8.0\TT.Domain.csproj.AssemblyReference.cache
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Domain\obj\Debug\net8.0\TT.Domain.csproj.Up2Date
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Domain\obj\Debug\net8.0\TT.Domain.dll
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Domain\obj\Debug\net8.0\refint\TT.Domain.dll
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Domain\obj\Debug\net8.0\TT.Domain.pdb
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Domain\obj\Debug\net8.0\ref\TT.Domain.dll

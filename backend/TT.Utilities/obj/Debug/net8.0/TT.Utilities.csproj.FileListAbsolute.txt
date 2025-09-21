@@ -1,0 +1,12 @@
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Utilities\bin\Debug\net8.0\TT.Utilities.deps.json
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Utilities\bin\Debug\net8.0\TT.Utilities.dll
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Utilities\bin\Debug\net8.0\TT.Utilities.pdb
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Utilities\obj\Debug\net8.0\TT.Utilities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Utilities\obj\Debug\net8.0\TT.Utilities.AssemblyInfoInputs.cache
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Utilities\obj\Debug\net8.0\TT.Utilities.AssemblyInfo.cs
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Utilities\obj\Debug\net8.0\TT.Utilities.csproj.CoreCompileInputs.cache
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Utilities\obj\Debug\net8.0\TT.Utilities.sourcelink.json
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Utilities\obj\Debug\net8.0\TT.Utilities.dll
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Utilities\obj\Debug\net8.0\refint\TT.Utilities.dll
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Utilities\obj\Debug\net8.0\TT.Utilities.pdb
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Utilities\obj\Debug\net8.0\ref\TT.Utilities.dll
