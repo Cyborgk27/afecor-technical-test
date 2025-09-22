@@ -1,1 +1,99 @@
-<p>form-order works!</p>
+<form [formGroup]="orderForm" class="space-y-6 p-4 max-w-4xl mx-auto">
+
+    <!-- Cliente -->
+    <mat-form-field appearance="fill" class="w-full">
+        <mat-label>Cliente</mat-label>
+        <mat-select formControlName="clientId">
+            <mat-option *ngFor="let client of clients" [value]="client.id">
+                {{ client.id + ". " + client.firstName + " " + client.lastName }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <!-- Fecha -->
+    <mat-form-field appearance="fill" class="w-full">
+        <mat-label>Fecha</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="orderDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <!-- Detalles -->
+    <div formArrayName="details" class="space-y-4">
+        <h3 class="text-lg font-semibold">Detalles</h3>
+        <button mat-raised-button color="primary" type="button" (click)="addDetail()" class="mb-2">
+            + Agregar detalle
+        </button>
+
+        <div *ngFor="let detail of details.controls; let i = index" [formGroup]="detailGroup(i)"
+            class="grid grid-cols-1 sm:grid-cols-6 gap-4 items-end border p-4 rounded shadow-sm">
+
+            <!-- Producto -->
+            <mat-form-field appearance="fill" class="w-full">
+                <mat-label>Producto</mat-label>
+                <mat-select formControlName="productId"
+                    (selectionChange)="onProductSelected($event.value, detailGroup(i))">
+                    <mat-option *ngFor="let product of products" [value]="product.id">
+                        {{ product.name }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <!-- Precio Venta -->
+            <mat-form-field appearance="fill" class="w-full">
+                <mat-label>Precio Venta</mat-label>
+                <input matInput type="number" formControlName="price" (input)="calculateDetail(detailGroup(i))" />
+            </mat-form-field>
+
+            <!-- Costo -->
+            <mat-form-field appearance="fill" class="w-full">
+                <mat-label>Costo</mat-label>
+                <input matInput type="number" formControlName="cost" (input)="calculateDetail(detailGroup(i))" />
+            </mat-form-field>
+
+            <!-- Cantidad -->
+            <mat-form-field appearance="fill" class="w-full">
+                <mat-label>Cantidad</mat-label>
+                <input matInput type="number" formControlName="quantity" (input)="calculateDetail(detailGroup(i))" />
+            </mat-form-field>
+
+            <!-- Subtotal -->
+            <mat-form-field appearance="fill" class="w-full">
+                <mat-label>Subtotal</mat-label>
+                <input matInput type="number" formControlName="subTotal" [readonly]="true" />
+            </mat-form-field>
+
+            <!-- Rentabilidad -->
+            <mat-form-field appearance="fill" class="w-full">
+                <mat-label>Rentabilidad %</mat-label>
+                <input matInput type="number" formControlName="profitability" [readonly]="true" />
+            </mat-form-field>
+
+            <!-- Botón eliminar -->
+            <button mat-icon-button color="warn" type="button" (click)="removeDetail(i)" class="self-start">
+                <mat-icon>delete</mat-icon>
+            </button>
+
+        </div>
+    </div>
+
+    <!-- Total y rentabilidad global -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mt-4">
+        <mat-form-field appearance="fill" class="w-full sm:w-1/2">
+            <mat-label>Total</mat-label>
+            <input matInput type="number" formControlName="total" [readonly]="true" />
+        </mat-form-field>
+
+        <div class="w-full sm:w-1/2 text-center">
+            <span [ngClass]="profitabilityColor" class="font-bold text-lg">
+                {{ globalProfitability | number: '1.0-2' }}%
+            </span>
+        </div>
+    </div>
+
+    <!-- Botón Confirmar -->
+    <button mat-raised-button color="accent" type="button" [disabled]="orderForm.invalid" (click)="confirmSubmit()">
+        Confirmar Cambios
+    </button>
+
+</form>

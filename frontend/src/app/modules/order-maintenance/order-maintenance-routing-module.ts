@@ -19,7 +19,7 @@ const routes: Routes = [
     component: CreateOrder
   },
   {
-    path: 'update-order',
+    path: 'update-order/:id',
     component: UpdateOrder
   },
 ];

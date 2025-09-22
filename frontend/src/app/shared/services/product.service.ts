@@ -13,6 +13,6 @@ export class ProductService {
   constructor(private http: HttpClient) {}
   
   getAvailableProducts(): Observable<IBaseResponse<IProduct[]>> {
-    return this.http.get<IBaseResponse<IProduct[]>>(`${environment.urlAddress}available`);
+    return this.http.get<IBaseResponse<IProduct[]>>(`${environment.urlAddress}api/product/available`);
   }
 }

@@ -1,6 +1,10 @@
 <div class="p-4">
     <h2 class="text-xl font-bold mb-4">📋 Lista de Pedidos</h2>
 
+    <button mat-raised-button color="primary" type="button" (click)="createOrder()" class="mb-2">
+        + Agregar detalle
+    </button>
+
     <div class="overflow-x-auto rounded-2xl shadow-lg">
         <table mat-table [dataSource]="dataSource" class="min-w-full bg-white">
 

@@ -13,6 +13,6 @@ export class ClientService {
   constructor(private http: HttpClient) {}
 
   getAvailableClients(): Observable<IBaseResponse<IClient[]>> {
-    return this.http.get<IBaseResponse<IClient[]>>(`${environment.urlAddress}available`);
+    return this.http.get<IBaseResponse<IClient[]>>(`${environment.urlAddress}api/Client/available`);
   }
 }

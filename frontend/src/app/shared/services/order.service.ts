@@ -12,37 +12,23 @@ export class OrderService {
   
   constructor(private http: HttpClient) {}
 
-  private mockOrders: IOrder[] = [
-    { id: 1, clientId: 101, orderDate: new Date().toISOString(), total: 250, state: 1 },
-    { id: 2, clientId: 102, orderDate: new Date().toISOString(), total: 180, state: 1 },
-    { id: 3, clientId: 103, orderDate: new Date().toISOString(), total: 320, state: 1 }
-  ];
-
-  getAllIOrders(): Observable<IBaseResponse<IOrder[]>> {
-    // return of({
-    //   isSuccess: true,
-    //   statusCodde: 200,
-    //   message: 'Datos de prueba cargados',
-    //   data: this.mockOrders ?? [],
-    //   errors: []
-    // });
-    
+  getAllOrders(): Observable<IBaseResponse<IOrder[]>> {
     return this.http.get<IBaseResponse<IOrder[]>>(`${environment.urlAddress}api/Order`);
   }
 
-  getIOrderById(id: number): Observable<IBaseResponse<IOrder>> {
-    return this.http.get<IBaseResponse<IOrder>>(`${environment.urlAddress}${id}`);
+  getOrderById(id: number): Observable<IBaseResponse<IOrder>> {
+    return this.http.get<IBaseResponse<IOrder>>(`${environment.urlAddress}api/Order/${id}`);
   }
 
-  createIOrder(IOrder: IOrder): Observable<IBaseResponse<IOrder>> {
-    return this.http.post<IBaseResponse<IOrder>>(`${environment.urlAddress}`, IOrder);
+  createOrder(IOrder: IOrder): Observable<IBaseResponse<IOrder>> {
+    return this.http.post<IBaseResponse<IOrder>>(`${environment.urlAddress}api/Order`, IOrder);
   }
 
-  updateIOrder(id: number, IOrder: IOrder): Observable<IBaseResponse<IOrder>> {
-    return this.http.put<IBaseResponse<IOrder>>(`${environment.urlAddress}${id}`, IOrder);
+  updateOrder(id: number, IOrder: IOrder): Observable<IBaseResponse<IOrder>> {
+    return this.http.put<IBaseResponse<IOrder>>(`${environment.urlAddress}api/Order/${id}`, IOrder);
   }
 
-  deleteIOrder(id: number): Observable<IBaseResponse<boolean>> {
-    return this.http.delete<IBaseResponse<boolean>>(`${environment.urlAddress}${id}`);
+  deleteOrder(id: number): Observable<IBaseResponse<boolean>> {
+    return this.http.delete<IBaseResponse<boolean>>(`${environment.urlAddress}api/Order/${id}`);
   }
 }
