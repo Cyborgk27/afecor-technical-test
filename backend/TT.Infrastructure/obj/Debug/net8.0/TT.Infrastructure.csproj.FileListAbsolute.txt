@@ -16,3 +16,5 @@ C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Infrastructure\
 C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Infrastructure\obj\Debug\net8.0\refint\TT.Infrastructure.dll
 C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Infrastructure\obj\Debug\net8.0\TT.Infrastructure.pdb
 C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Infrastructure\obj\Debug\net8.0\ref\TT.Infrastructure.dll
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Infrastructure\bin\Debug\net8.0\TT.Infrastructure.runtimeconfig.json
+C:\Users\slend\Desktop\projects\afecor-technical-test\backend\TT.Infrastructure\obj\Debug\net8.0\TT.Infrastructure.genruntimeconfig.cache

@@ -1,4 +1,5 @@
 ﻿using TT.Application.Commons.Bases;
+using TT.Application.Dtos.Order;
 using TT.Application.Interfaces;
 using TT.Domain.Entities;
 using TT.Infrastructure.Persistences.Interfaces;
@@ -22,25 +23,45 @@ namespace TT.Application.Services
 
         public async Task<BaseResponse<Order>> GetByIdAsync(int id)
         {
-            var order = await _orderRepo.GetByIdAsync(id);
+            var order = await _orderRepo.GetByIdAsync(id, o => o.Details);
+
             if (order == null)
                 return ResponseFactory.NotFound<Order>("Pedido no encontrado");
 
             return ResponseFactory.Success(order, "Pedido encontrado");
         }
 
-        public async Task<BaseResponse<Order>> CreateAsync(Order order)
+        public async Task<BaseResponse<Order>> CreateAsync(OrderCreateDto dto)
         {
+            var order = new Order(dto.ClientId, dto.OrderDate);
+
+            foreach (var d in dto.Details)
+            {
+                order.AddDetail(d.ProductId, d.Price, d.Quantity);
+            }
+
             var created = await _orderRepo.AddAsync(order);
             return ResponseFactory.Created(created, "Pedido creado exitosamente");
         }
 
-        public async Task<BaseResponse<Order>> UpdateAsync(Order order)
+        public async Task<BaseResponse<Order>> UpdateAsync(OrderUpdateDto dto)
         {
-            if (!await _orderRepo.ExistsAsync(order.Id))
+            var existingOrder = await _orderRepo.GetByIdAsync(dto.Id);
+            if (existingOrder == null)
                 return ResponseFactory.NotFound<Order>("Pedido no existe");
 
-            var updated = await _orderRepo.UpdateAsync(order);
+
+            existingOrder.UpdateClient(dto.ClientId);
+            existingOrder.UpdateOrderDate(dto.OrderDate);
+
+
+            existingOrder.ClearDetails();
+            foreach (var d in dto.Details)
+            {
+                existingOrder.AddDetail(d.ProductId, d.Price, d.Quantity);
+            }
+
+            var updated = await _orderRepo.UpdateAsync(existingOrder);
             return ResponseFactory.Success(updated, "Pedido actualizado");
         }
 

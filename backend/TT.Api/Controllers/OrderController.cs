@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using TT.Application.Dtos.Order;
 using TT.Application.Interfaces;
 using TT.Domain.Entities;
 
@@ -30,14 +31,14 @@ namespace TT.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] Order order)
+        public async Task<IActionResult> Create([FromBody] OrderCreateDto order)
         {
             var response = await _service.CreateAsync(order);
             return StatusCode(response.StatusCode, response);
         }
 
         [HttpPut("{id:int}")]
-        public async Task<IActionResult> Update(int id, [FromBody] Order order)
+        public async Task<IActionResult> Update(int id, [FromBody] OrderUpdateDto order)
         {
             if (id != order.Id)
                 return BadRequest("El id de la ruta no coincide con el id del pedido");

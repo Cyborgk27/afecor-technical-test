@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 using TT.Domain.Commons;
 using TT.Infrastructure.Persistences.Contexts;
 using TT.Infrastructure.Persistences.Interfaces;
@@ -18,15 +19,29 @@ namespace TT.Infrastructure.Persistences.Repositories
             _dbSet = _context.Set<T>();
         }
 
-        public async Task<T[]> GetAllAsync()
+        public async Task<T[]> GetAllAsync(params Expression<Func<T, object>>[] includes)
         {
-            return await _dbSet.AsNoTracking().ToArrayAsync();
+            IQueryable<T> query = _dbSet;
+            if (includes != null)
+            {
+                foreach (var include in includes)
+                    query = query.Include(include);
+            }
+            return await query.ToArrayAsync();
         }
 
-        public async Task<T?> GetByIdAsync(TKey id)
+        public async Task<T?> GetByIdAsync(TKey id, params Expression<Func<T, object>>[] includes)
         {
-            return await _dbSet.FindAsync(id);
+            IQueryable<T> query = _dbSet;
+            if (includes != null)
+            {
+                foreach (var include in includes)
+                    query = query.Include(include);
+            }
+
+            return await query.FirstOrDefaultAsync(e => EF.Property<TKey>(e, "Id").Equals(id));
         }
+
 
         public async Task<T> AddAsync(T entity)
         {

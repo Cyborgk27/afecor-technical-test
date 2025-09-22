@@ -34,5 +34,25 @@ namespace TT.Domain.Entities
         {
             Total = Details.Sum(d => d.SubTotal);
         }
+
+        public void UpdateClient(int clientId)
+        {
+            if (clientId <= 0)
+                throw new ArgumentException("ClientId must be valid");
+
+            ClientId = clientId;
+        }
+
+        public void UpdateOrderDate(DateTime orderDate)
+        {
+            OrderDate = orderDate;
+        }
+
+        public void ClearDetails()
+        {
+            Details.Clear();
+            RecalculateTotal();
+        }
+
     }
 }

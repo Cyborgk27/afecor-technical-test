@@ -1,4 +1,5 @@
 ﻿using TT.Application.Commons.Bases;
+using TT.Application.Dtos.Order;
 using TT.Domain.Entities;
 
 namespace TT.Application.Interfaces
@@ -7,8 +8,8 @@ namespace TT.Application.Interfaces
     {
         Task<BaseResponse<IEnumerable<Order>>> GetAllAsync();
         Task<BaseResponse<Order>> GetByIdAsync(int id);
-        Task<BaseResponse<Order>> CreateAsync(Order order);
-        Task<BaseResponse<Order>> UpdateAsync(Order order);
+        Task<BaseResponse<Order>> CreateAsync(OrderCreateDto order);
+        Task<BaseResponse<Order>> UpdateAsync(OrderUpdateDto order);
         Task<BaseResponse<bool>> DeleteAsync(int id);
     }
 }

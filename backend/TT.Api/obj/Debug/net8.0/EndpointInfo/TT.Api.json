@@ -36,17 +36,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Order"
+                "$ref": "#/components/schemas/OrderCreateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Order"
+                "$ref": "#/components/schemas/OrderCreateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Order"
+                "$ref": "#/components/schemas/OrderCreateDto"
               }
             }
           }
@@ -99,17 +99,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Order"
+                "$ref": "#/components/schemas/OrderUpdateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/Order"
+                "$ref": "#/components/schemas/OrderUpdateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/Order"
+                "$ref": "#/components/schemas/OrderUpdateDto"
               }
             }
           }
@@ -196,41 +196,10 @@
   },
   "components": {
     "schemas": {
-      "Order": {
+      "OrderCreateDto": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "auditCreateUser": {
-            "type": "string",
-            "nullable": true
-          },
-          "auditCreateDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "auditUpdateUser": {
-            "type": "string",
-            "nullable": true
-          },
-          "auditUpdateDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "auditDeleteUser": {
-            "type": "string",
-            "nullable": true
-          },
-          "auditDeleteDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "state": {
+          "clientId": {
             "type": "integer",
             "format": "int32"
           },
@@ -238,68 +207,19 @@
             "type": "string",
             "format": "date-time"
           },
-          "clientId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "total": {
-            "type": "number",
-            "format": "double",
-            "readOnly": true
-          },
           "details": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/OrderDetail"
+              "$ref": "#/components/schemas/OrderDetailDto"
             },
-            "nullable": true,
-            "readOnly": true
+            "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "OrderDetail": {
+      "OrderDetailDto": {
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32",
-            "readOnly": true
-          },
-          "auditCreateUser": {
-            "type": "string",
-            "nullable": true
-          },
-          "auditCreateDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "auditUpdateUser": {
-            "type": "string",
-            "nullable": true
-          },
-          "auditUpdateDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "auditDeleteUser": {
-            "type": "string",
-            "nullable": true
-          },
-          "auditDeleteDate": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "state": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "orderId": {
-            "type": "integer",
-            "format": "int32"
-          },
           "productId": {
             "type": "integer",
             "format": "int32"
@@ -311,11 +231,31 @@
           "quantity": {
             "type": "integer",
             "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrderUpdateDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
           },
-          "subTotal": {
-            "type": "number",
-            "format": "double",
-            "readOnly": true
+          "clientId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "orderDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OrderDetailDto"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
