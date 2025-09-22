@@ -19,15 +19,15 @@ export class OrderService {
   ];
 
   getAllIOrders(): Observable<IBaseResponse<IOrder[]>> {
-    return of({
-      isSuccess: true,
-      statusCodde: 200,
-      message: 'Datos de prueba cargados',
-      data: this.mockOrders ?? [],
-      errors: []
-    });
+    // return of({
+    //   isSuccess: true,
+    //   statusCodde: 200,
+    //   message: 'Datos de prueba cargados',
+    //   data: this.mockOrders ?? [],
+    //   errors: []
+    // });
     
-    // return this.http.get<IBaseResponse<IOrder[]>>(`${environment.urlAddress}`);
+    return this.http.get<IBaseResponse<IOrder[]>>(`${environment.urlAddress}api/Order`);
   }
 
   getIOrderById(id: number): Observable<IBaseResponse<IOrder>> {
